@@ -1,0 +1,141 @@
+.page-html {
+  height: 100%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.page-body {
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-width: 320px;
+  font-family: var(--font-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.2;
+  color: var(--c-text-primary);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--c-page-bg);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+button {
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input {
+  font: inherit;
+}
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: var(--c-white);
+
+  @media (min-width: 992px) {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 18px 0;
+  }
+}
+
+.section-title {
+  position: relative;
+  padding-bottom: 17px;
+  font-weight: 600;
+  font-size: var(--fs-l);
+  line-height: 1.4;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 2px;
+    width: 40px;
+    height: 2px;
+    background-color: var(--c-accent);
+
+    @media (min-width: 575px) {
+      width: 60px;
+    }
+  }
+
+  @media (min-width: 575px) {
+    font-size: var(--fs-xl);
+  }
+
+  @media (min-width: 768px) {
+    font-size: var(--fs-xxl);
+  }
+
+  @media (min-width: 992px) {
+    font-size: var(--fs-xxxl);
+  }
+}
+
+.section-desc {
+  margin: 0;
+  padding-top: 16px;
+  font-size: var(--fs-s);
+  line-height: 1.57;
+
+  @media (min-width: 575px) {
+    font-size: var(--fs-m);
+  }
+
+  @media (min-width: 992px) {
+    padding: 20px 0;
+    font-size: var(--fs-l);
+  }
+}

@@ -1,0 +1,67 @@
+.hidden {
+  opacity: 0;
+}
+
+.animating {
+  animation: fadeIn 400ms ease-in-out forwards;
+}
+
+.promo__title,
+.promo__note,
+.features__item,
+.advantages__item,
+.contacts__item {
+  &.animating {
+    animation-name: fadeInFromBottom;
+  }
+}
+
+@media (max-width: 575px) {
+  .advantages__item {
+    opacity: 1;
+
+    &.animating {
+      animation: none;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .contacts__item {
+    &.animating {
+      animation-name: fadeInFromLeft;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInFromLeft {
+  from {
+    transform: translateX(-5%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInFromBottom {
+  from {
+    transform: translateY(5%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

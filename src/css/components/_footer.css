@@ -1,0 +1,132 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  text-align: center;
+  background-color: var(--c-lightblue);
+
+  @media (min-width: 992px) {
+    padding-top: 42px;
+  }
+}
+
+.footer__container {
+  padding: 0 20px;
+
+  @media (min-width: 575px) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0 15px;
+  }
+}
+
+.footer__credits {
+  @media (min-width: 768px) {
+    flex: 0 0 230px;
+    text-align: left;
+  }
+}
+
+.footer__links {
+  @media (min-width: 575px) {
+    flex: 0 1 100%;
+    order: 3;
+  }
+
+  @media (min-width: 768px) {
+    max-width: 700px;
+  }
+
+  @media (min-width: 992px) {
+    flex: 0 1 480px;
+    order: initial;
+  }
+
+  @media (min-width: 1130px) {
+    flex: 0 1 630px;
+  }
+}
+
+.footer__phone {
+  display: inline-block;
+  margin-bottom: 30px;
+  font-weight: 600;
+  font-size: var(--fs-xl);
+  line-height: 1.33;
+  color: var(--c-accent);
+
+  span {
+    display: block;
+    font-size: var(--fs-s);
+    color: var(--c-text-primary);
+    opacity: 0.8;
+
+    @media (min-width: 992px) {
+      font-size: var(--fs-m);
+    }
+  }
+
+  @media (min-width: 575px) {
+    flex: 0 0 217px;
+    margin-bottom: 0;
+    line-height: 1.67;
+    text-align: right;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 30px;
+  }
+}
+
+.footer__logo {
+  display: inline-block;
+
+  @media (min-width: 575px) {
+    margin-bottom: 10px;
+  }
+
+  @media (min-width: 992px) {
+    margin-bottom: 2px;
+  }
+}
+
+.footer__copy {
+  display: block;
+  margin: 0 auto;
+  max-width: 200px;
+  font-size: var(--fs-xs);
+  line-height: 1.67;
+
+  span {
+    @media (min-width: 575px) {
+      display: none;
+    }
+  }
+
+  @media (min-width: 768px) {
+    margin: 0;
+    max-width: none;
+  }
+
+  @media (min-width: 992px) {
+    font-size: var(--fs-s);
+  }
+}
+
+.footer__info {
+  display: block;
+  padding: 22px 15px;
+  width: 100%;
+  font-size: var(--fs-xs);
+  line-height: 1.5;
+  background-color: var(--c-white);
+
+  span {
+    display: block;
+    margin: 0 auto;
+    max-width: 1170px;
+  }
+}

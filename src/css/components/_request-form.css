@@ -1,0 +1,97 @@
+.request-form {
+  line-height: 1.62;
+
+  @media (min-width: 575px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  @media (min-width: 768px) {
+    column-gap: 20px;
+  }
+
+  @media (min-width: 992px) {
+    grid-template-areas:
+      "name phone . button"
+      "type amount . agreement";
+    grid-template-columns: 1fr 1fr 25px 1fr;
+    row-gap: 20px;
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: 1fr 1fr 60px 1fr;
+  }
+}
+
+.request-form__field {
+  margin-bottom: 15px;
+
+  @media (min-width: 992px) {
+    margin-bottom: 0;
+
+    &--name {
+      grid-area: name;
+    }
+
+    &--phone {
+      grid-area: phone;
+    }
+
+    &--type {
+      grid-area: type;
+    }
+
+    &--amount {
+      grid-area: amount;
+    }
+  }
+}
+
+.request-form__input {
+  display: block;
+  border: 1px solid var(--c-lightgray);
+  border-radius: 5px;
+  padding: 11px 20px;
+  width: 100%;
+  transition: border-color var(--transition);
+
+  &::placeholder {
+    opacity: 0.6;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--c-accent);
+  }
+
+  @media (min-width: 992px) {
+    padding-top: 17px;
+    padding-bottom: 16px;
+  }
+}
+
+.request-form__btn {
+  margin-bottom: 15px;
+  width: 100%;
+
+  @media (min-width: 992px) {
+    grid-area: button;
+    margin-bottom: 0;
+  }
+}
+
+.request-form__agreement {
+  display: block;
+  font-size: var(--fs-xs);
+  text-align: center;
+
+  @media (min-width: 992px) {
+    grid-area: agreement;
+    padding-top: 5px;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: var(--fs-s);
+  }
+}

@@ -1,0 +1,30 @@
+:root {
+  /* colors */
+
+  --c-white: #fff;
+  --c-black: #000;
+  --c-dark: #3b3d46;
+  --c-accent: #00b4e3;
+  --c-lightgray: #e6e6e6;
+  --c-lightblue: #f1f7f8;
+  --c-page-bg: var(--c-white);
+  --c-text-primary: var(--c-dark);
+  --c-shadow-primary: #eaecef;
+
+  /* fonts */
+
+  --font-primary: "Gilroy", "Arial", sans-serif;
+
+  /* font sizes */
+  --fs-xs: 12px;
+  --fs-s: 14px;
+  --fs-m: 16px;
+  --fs-l: 20px;
+  --fs-xl: 24px;
+  --fs-xxl: 32px;
+  --fs-xxxl: 40px;
+
+  /* effects */
+
+  --transition: 300ms ease-in-out;
+}

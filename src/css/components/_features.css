@@ -1,0 +1,122 @@
+.features {
+  @media (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.features__list {
+  @mixin list-reset;
+
+  margin-bottom: 14px;
+  font-size: var(--fs-xs);
+  line-height: 1.57;
+
+  @media (min-width: 768px) {
+    display: contents;
+  }
+}
+
+.features__item {
+  position: relative;
+  padding: 5px 5px 17px 42px;
+  padding-left: 42px;
+  font-size: var(--fs-s);
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 28px;
+    height: 28px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @media (max-width: 376px) {
+      top: 10px;
+    }
+  }
+
+  @media (min-width: 575px) {
+    padding: 12px 15px 17px 46px;
+  }
+
+  @media (min-width: 768px) {
+    flex: 0 1 50%;
+    font-size: var(--fs-m);
+
+    &::before {
+      top: 30%;
+    }
+  }
+
+  /*
+    Это можно было сделать по разному,
+    но такой вариант мне показался лучшим.)
+    При других все ломалось при добавлении нового пункта,
+    а так можно переполнять и все станет хорошо, кнопка всегда будет
+    последней благодаря отрицательным ордерам.
+  */
+
+  @media (min-width: 768px) {
+    &--approval {
+      order: -5;
+    }
+
+    &--percent {
+      order: -3;
+    }
+
+    &--range {
+      order: -1;
+    }
+
+    &--time {
+      order: -4;
+    }
+
+    &--transfer {
+      order: -2;
+    }
+  }
+
+  &--approval::before {
+    background-image: url("../../images/icons/approval.svg");
+  }
+
+  &--percent::before {
+    background-image: url("../../images/icons/percent.svg");
+  }
+
+  &--range::before {
+    background-image: url("../../images/icons/money.svg");
+  }
+
+  &--time::before {
+    background-image: url("../../images/icons/time.svg");
+  }
+
+  &--transfer::before {
+    background-image: url("../../images/icons/key.svg");
+  }
+}
+
+.features__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    flex: 0 1 246px;
+    align-self: flex-start;
+    order: 1;
+  }
+
+  @media (min-width: 992px) {
+    margin-top: 7px;
+    margin-left: 3px;
+    min-height: 60px;
+  }
+}
