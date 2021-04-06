@@ -32,16 +32,12 @@
 
 .footer__links {
   @media (min-width: 575px) {
-    flex: 0 1 100%;
+    flex: 1 1 100%;
     order: 3;
   }
 
-  @media (min-width: 768px) {
-    max-width: 700px;
-  }
-
   @media (min-width: 992px) {
-    flex: 0 1 480px;
+    flex: 1 1 480px;
     order: initial;
   }
 

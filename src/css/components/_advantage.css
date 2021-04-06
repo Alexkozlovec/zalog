@@ -44,6 +44,10 @@
 
   list-style-type: disc;
   padding-left: 12px;
+
+  @media (min-width: 992px) {
+    padding-left: 15px;
+  }
 }
 
 .advantage__item {
@@ -52,6 +56,10 @@
 
   &:not(:last-child) {
     margin-bottom: 6px;
+
+    @media (min-width: 992px) {
+      margin-bottom: 10px;
+    }
   }
 
   @media (min-width: 992px) {

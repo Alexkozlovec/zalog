@@ -2,25 +2,28 @@
   opacity: 0;
 }
 
-.animating {
+.animated {
   animation: fadeIn 400ms ease-in-out forwards;
 }
 
-.promo__title,
-.promo__note,
 .features__item,
 .advantages__item,
 .contacts__item {
-  &.animating {
+  &.animated {
     animation-name: fadeInFromBottom;
   }
+}
+
+.promo__title,
+.promo__note {
+  animation-duration: 700ms;
 }
 
 @media (max-width: 575px) {
   .advantages__item {
     opacity: 1;
 
-    &.animating {
+    &.animated {
       animation: none;
     }
   }
@@ -28,7 +31,7 @@
 
 @media (min-width: 768px) {
   .contacts__item {
-    &.animating {
+    &.animated {
       animation-name: fadeInFromLeft;
     }
   }

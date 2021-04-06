@@ -283,6 +283,8 @@ template {
 }
 
 .page-body {
+  display: flex;
+  flex-direction: column;
   overflow: auto;
   margin: 0;
   padding: 0;
@@ -293,9 +295,21 @@ template {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.2;
   color: var(--c-text-primary);
-  background-size: cover;
-  background-repeat: no-repeat;
   background-color: var(--c-page-bg);
+}
+
+/* sticky footer */
+
+.header {
+  flex-shrink: 0;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.footer {
+  flex-shrink: 0;
 }
 
 h1,
@@ -796,7 +810,7 @@ input {
 }
 
 .request__container {
-  padding-top: 26px;
+  padding-top: 28px;
   padding-bottom: 32px;
   background-color: var(--c-white);
 }
@@ -887,6 +901,7 @@ input {
   margin: 0;
   border-radius: 10px;
   padding: 12px 15px 10px 50px;
+  min-height: 70px;
   font-weight: 600;
   line-height: 1.625;
   background-color: var(--c-lightblue);
@@ -1074,18 +1089,22 @@ input {
   opacity: 0;
 }
 
-.animating {
+.animated {
   -webkit-animation: fadeIn 400ms ease-in-out forwards;
   animation: fadeIn 400ms ease-in-out forwards;
 }
 
-.promo__title.animating,
-.promo__note.animating,
-.features__item.animating,
-.advantages__item.animating,
-.contacts__item.animating {
+.features__item.animated,
+.advantages__item.animated,
+.contacts__item.animated {
   -webkit-animation-name: fadeInFromBottom;
   animation-name: fadeInFromBottom;
+}
+
+.promo__title,
+.promo__note {
+  -webkit-animation-duration: 700ms;
+  animation-duration: 700ms;
 }
 
 @-webkit-keyframes fadeIn {
@@ -1152,6 +1171,16 @@ input {
   }
 }
 
+@media (min-width: 411px) {
+  .promo {
+    background-image: url("../images/promo-bg.jpg");
+  }
+
+  .promo__content {
+    max-width: 85%;
+  }
+}
+
 @media (min-width: 475px) {
   .promo__title {
     font-size: var(--fs-xxl);
@@ -1171,16 +1200,12 @@ input {
     font-size: var(--fs-m);
   }
 
-  .promo {
-    background-image: url("../images/promo-bg.jpg");
-  }
-
   .promo__content {
     max-width: 75%;
   }
 
   .features__item {
-    padding: 12px 15px 17px 46px;
+    padding: 12px 15px 15px 46px;
   }
 
   .advantages__wrapper {
@@ -1229,7 +1254,7 @@ input {
   }
 
   .footer__links {
-    flex: 0 1 100%;
+    flex: 1 1 100%;
     order: 3;
   }
 
@@ -1251,7 +1276,7 @@ input {
   .footer-links {
     -moz-column-gap: 21px;
     column-gap: 21px;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, auto);
   }
 
   .footer-links::before {
@@ -1345,10 +1370,6 @@ input {
     column-gap: 20px;
   }
 
-  .questions__title {
-    padding-bottom: 0;
-  }
-
   .questions__desc {
     padding-bottom: 0;
   }
@@ -1373,52 +1394,23 @@ input {
     line-height: 1.62;
   }
 
-  .contacts__container {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 26px;
-    padding-bottom: 20px;
-  }
-
-  .contacts__header {
-    flex: 0 0 200px;
-  }
-
-  .contacts__title::after {
-    left: auto;
-    right: -30px;
-    top: 40%;
-    transform: rotate(90deg);
-  }
-
-  .contacts__title {
-    font-size: var(--fs-xl);
-    text-align: left;
-  }
-
-  .contacts__title span {
-    display: none;
-  }
-
   .contacts__list {
-    flex-grow: 1;
-    padding: 0 0 0 40px;
-    text-align: left;
+    max-width: none;
   }
 
   .contacts__item {
-    flex: 1 1 calc(100% / 3);
+    flex: 1 1 32%;
     padding: 13px 0;
     min-width: 240px;
+  }
+
+  .contacts__item:nth-child(3n) {
+    flex: 1 1 34%;
   }
 
   .footer__credits {
     flex: 0 0 230px;
     text-align: left;
-  }
-
-  .footer__links {
-    max-width: 700px;
   }
 
   .footer__phone {
@@ -1434,7 +1426,7 @@ input {
     line-height: 1.7;
   }
 
-  .contacts__item.animating {
+  .contacts__item.animated {
     -webkit-animation-name: fadeInFromLeft;
     animation-name: fadeInFromLeft;
   }
@@ -1581,7 +1573,7 @@ input {
   }
 
   .advantages__desc {
-    padding-top: 20px;
+    padding-bottom: 0;
   }
 
   .advantages__wrapper {
@@ -1596,6 +1588,14 @@ input {
   .advantage__title {
     font-size: var(--fs-l);
     line-height: 1.4;
+  }
+
+  .advantage__list {
+    padding-left: 15px;
+  }
+
+  .advantage__item:not(:last-child) {
+    margin-bottom: 10px;
   }
 
   .advantage__item {
@@ -1681,7 +1681,7 @@ input {
 
   .request-form__agreement {
     grid-area: agreement;
-    padding-top: 5px;
+    padding-top: 7px;
   }
 
   .questions {
@@ -1695,6 +1695,8 @@ input {
 
   .questions__title {
     padding-right: 60px;
+    padding-bottom: 0;
+    max-width: 690px;
   }
 
   .questions__title::after {
@@ -1708,6 +1710,7 @@ input {
   .questions__desc {
     display: inline-block;
     padding-top: 0;
+    padding-bottom: 0;
     padding-left: 28px;
     max-width: 480px;
     font-weight: 600;
@@ -1720,7 +1723,42 @@ input {
   }
 
   .contacts {
-    padding-top: 20px;
+    padding-top: 15px;
+  }
+
+  .contacts__container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 24px;
+    padding-bottom: 28px;
+  }
+
+  .contacts__header {
+    flex: 0 0 200px;
+  }
+
+  .contacts__title::after {
+    left: auto;
+    right: -30px;
+    top: 40%;
+    transform: rotate(90deg);
+  }
+
+  .contacts__title {
+    padding-right: 20px;
+    padding-bottom: 0;
+    font-size: var(--fs-xl);
+    text-align: left;
+  }
+
+  .contacts__title span {
+    display: none;
+  }
+
+  .contacts__list {
+    flex-grow: 1;
+    padding: 0 0 0 40px;
+    text-align: left;
   }
 
   .contacts__desc span {
@@ -1732,7 +1770,7 @@ input {
   }
 
   .footer__links {
-    flex: 0 1 480px;
+    flex: 1 1 480px;
     order: initial;
   }
 
@@ -1749,7 +1787,7 @@ input {
   }
 
   .footer-links {
-    padding-top: 0;
+    padding: 0;
     padding-bottom: 10px;
     row-gap: 10px;
   }
@@ -1813,7 +1851,7 @@ input {
   }
 
   .contacts__list {
-    padding: 0 0 0 50px;
+    padding: 0 0 0 68px;
   }
 }
 
@@ -1828,7 +1866,7 @@ input {
     opacity: 1;
   }
 
-  .advantages__item.animating {
+  .advantages__item.animated {
     -webkit-animation: none;
     animation: none;
   }
@@ -1840,7 +1878,7 @@ input {
   }
 }
 
-@media (min-width: 575px) and (max-width: 992px) {
+@media (min-width: 411px) and (max-width: 992px) {
   .promo__content {
     background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(241, 247, 248, 0.95));
   }
