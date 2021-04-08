@@ -1790,6 +1790,7 @@ input {
     padding: 0;
     padding-bottom: 10px;
     row-gap: 10px;
+    margin: 0 15px;
   }
 
   .footer-links::before {
